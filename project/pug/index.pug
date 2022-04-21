@@ -1,0 +1,186 @@
+- var pageDesc = 'This Is My Portfolio';
+- var pageTitle = 'Yousef Alaa';
+include component/mixins
+
+doctype html
+html(lang='en')
+  include component/head
+  
+  body
+    // Loader
+    .loader
+      div
+      div
+      div
+  
+    // Background Circle
+    .bg-circles
+      .circle-1
+      .circle-2
+      .circle-3
+      .circle-4
+  
+    // Start Overlay
+    .overlay
+  
+    .main.hidden
+      // Start Header
+      header
+        .container
+          .row.flex-end
+            button.nav-toggle(type='button'): span
+            nav
+              .nav-inner
+                ul
+                  li: a.link-item.nav-item.active(href='#home') home
+                  li: a.link-item.nav-item(href='#about') about
+                  li: a.link-item.nav-item(href='#portfolio') portfolio
+                  li: a.link-item.nav-item(href='#contact') contact
+    
+      // Start Home Section
+      section#home.home.align-center
+        .container
+          .row.align-center
+            .home-text
+              p Hello, I'm
+              h1 Yousef Alaa
+              h2 front-End web Developer
+              a.btn.link-item(href='#about') more about me
+              a.btn.link-item(href='#portfolio') portfolio
+            .home-img
+              //- old way
+                .img-box
+                  img(src='images/profile-img.png' alt='Photo')
+              //- new way
+              img(src='images/feeling-proud.svg' alt='Photo')
+              img(src='images/programming.svg' alt='Photo 2')
+                
+      // Start About Section
+      section#about.about.sec-pad
+        .container
+          .row
+            .section-title
+              h2 about me
+          .row
+            .about-img
+              //- old way
+                .img-box
+                  img(src='images/about-img.png' alt='About Image')
+              //- new way
+              img(src='images/profile.svg' alt='About Image')
+              img(src='images/source_code.svg' alt='About Image')
+            .about-text
+              p Hello!<br>My name is Yousef,<br>I still a fresh front-end developer, but I'm always up to learn new things, and I always try to improve myself and get more and more experience.
+              h3 skills
+              .skills
+                .skill-item HTML
+                .skill-item CSS
+                .skill-item Javascript 6
+                .skill-item Bootstrap
+                .skill-item jQuery
+                .skill-item SASS
+                .skill-item PugJs
+                .skill-item GulpJs
+                .skill-item Tailwind Css
+                .skill-item React
+              .about-tabs
+                button.tab-item.active(type='button' data-target='#education') education
+                button.tab-item(type='button' data-target='#experience') experience
+                
+              // Start Education
+              #education.tab-content.active
+                .timeline
+                  .timeline-item
+                    span.date 2009 - 2018
+                    h4 Primary education - 
+                      span El Sedeek primary school
+                    p My primary school<br>where I learned reading, writing and other basic education subjects.
+                    
+                  .timeline-item
+                    span.date 2018 - 2023
+                    h4 Secondary education - 
+                      span El-Fanyea technical School
+                    p My current school,<br>I study the electrical department and deal with electrical equipment and machines                  
+                            
+              // Start Experience
+              #experience.tab-content
+                .timeline
+                  .timeline-item
+                    span.date 2020 - 2021
+                    h4 front end - 
+                      span freelancer
+                    p I Worked freelancer at upwork, freelancer and other websites
+                    
+              a.btn(href='cv.pdf' target='_blank') download cv
+              a.btn.link-item(href='#contact') contact me
+
+      // Start Portfolio Section
+      section#portfolio.portfolio.sec-pad
+        .container
+          .row
+            .section-title
+              h2 recent work
+          .row
+            +portfolioItem('5.jpg', 'Garage', 'Website for cars garage', ['6 May 2021', 'html, css, js and jQuery', 'https://www.garage.gq/'])
+            +portfolioItem('1.jpg', 'Mogo', 'My first website I was so happy when I finished it', ['18 Aug 2020', 'html, css and javascript', 'https://mogo-temp.netlify.app/'])
+            +portfolioItem('8.jpg', 'GPT-3', 'Open Ai Website', ['1 Feb 2022', 'html, css, js, tailwind css and ReactJs', 'https://thegpt-3.netlify.app/'])
+            +portfolioItem('3.jpg', 'STM', 'Website for outer space machines', ['2 Feb 2021', 'html, css and javascript', 'https://thestm.netlify.app/'])
+            +portfolioItem('6.jpg', 'Creeping', 'Gamers website', ['21 Oct 2021', 'html, css, js and jQuery', 'https://creep.netlify.app/'])
+            +portfolioItem('4.jpg', 'EventUp', 'Amazing website for events', ['21 Apr 2021', 'html, css, js and jQuery', 'https://event-up.netlify.app/'])
+            +portfolioItem('7.jpg', 'Memory Game', 'Amazing Memory Game website', ['11 Feb 2022', 'html, css, js and ReactJs', 'https://memory-game-coral.vercel.app/'])
+            +portfolioItem('2.jpg', 'Evolo', 'Convert PSD To HTML For Practise', ['5 Oct 2020', 'html, css and javascript', 'https://evolo-temp.netlify.app/'])
+
+      // Start Contact Section
+      section#contact.contact.sec-pad
+        .container
+          .row
+            .section-title
+              h2 contact me
+              
+          .row
+            .contact-form
+              form(action="https://formspree.io/f/mnqlybqd" method="POST" id='contactForm')
+                .row
+                  .inp-grp
+                    input.inp-control(type='text' name='Name' required placeholder='Name')
+                  .inp-grp
+                    input.inp-control(type='email' name="_replyto" required placeholder='Email')
+                  .inp-grp
+                    textarea.inp-control(required name='Message' placeholder='Message')
+                  .sub-btn
+                    button.btn(type='submit') Send Message
+                    
+            .contact-info
+              .info-item
+                h3 email
+                p yousefalaa11223344@gmail.com
+          
+              .info-item
+                h3 phone
+                p 01100985529
+                
+              .info-item
+                h3 follow me
+                .socila
+                  a(href='https://www.facebook.com/Yousseef.Alaa/' target='_blank')
+                    i.icon-facebook-f-brands
+                  a(href='https://github.com/Yousef-Alaa' target='_blank')
+                    i.icon-github-brands
+                  a(href='https://www.linkedin.com/in/yousef-alaa-4b54021b2' target='_blank')
+                    i.icon-linkedin-in-brands
+                  a(href='https://www.instagram.com/yousef___alaa11/' target='_blank')
+                    i.icon-instagram-brands
+          
+    .portfolio-popup
+      .pp-inner
+        .pp-content
+          .pp-header
+            button.btn.pp-close(type='button')
+              i.icon-xmark-solid
+            .pp-thumb
+              img(src='images/portfolio/1.jpg')
+            h3
+          .pp-body
+    
+    script(src="https://unpkg.com/sweetalert/dist/sweetalert.min.js")
+    script(src='js/script.js')
