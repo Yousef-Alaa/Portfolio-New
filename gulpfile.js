@@ -35,7 +35,7 @@ gulp.task('css', function () {
 
 // Js Task
 gulp.task('js', function () {
-	return gulp.src('project/js/script.js')
+	return gulp.src('project/script.js')
 						.pipe(uglify())
 			.pipe(gulp.dest('dist/js'))
 						.pipe(connect.reload());
@@ -47,6 +47,6 @@ gulp.task('watch', function () {
 	connect.server({ root: 'dist', livereload: true, port: 8000 });
 	gulp.watch('project/pug/**/*.pug', gulp.series('pug'));
 	gulp.watch('project/sass/**/*.scss', gulp.series('css'));
-	gulp.watch('project/js/**/*.js', gulp.series('js'));
+	gulp.watch('project/*.js', gulp.series('js'));
 
 });
