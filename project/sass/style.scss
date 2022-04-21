@@ -566,7 +566,7 @@ header {
       background-color: $whiteAlph25;
       border: 1px solid $whiteAlph40;
       border-radius: 10px;
-      img {width: 100%;border-radius: 10px}
+      img {width: 100%;border-radius: 10px;aspect-ratio: 3/2;}
     }
     h3 {font-size: 20px;text-transform: capitalize;margin: 20px 0}
     .view-btn {padding: 8px 20px;font-size: 14px}
