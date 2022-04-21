@@ -1,11 +1,10 @@
-let gulp = require('gulp'),
+const gulp = require('gulp'),
 		prefix = require('gulp-autoprefixer'),
 		pug = require('gulp-pug-3'),
-		sass = require('gulp-sass'),
+		sass = require('gulp-sass')(require('sass')),
 		connect = require('gulp-connect'),
 		srcmaps = require('gulp-sourcemaps'),
-		uglify = require('gulp-uglify'),
-		imagemin = require('gulp-image');
+		uglify = require('gulp-uglify');
 
 
 // Image Task
@@ -36,7 +35,7 @@ gulp.task('css', function () {
 
 // Js Task
 gulp.task('js', function () {
-	return gulp.src('project/script.js')
+	return gulp.src('project/js/script.js')
 						.pipe(uglify())
 			.pipe(gulp.dest('dist/js'))
 						.pipe(connect.reload());
@@ -47,7 +46,7 @@ gulp.task('watch', function () {
 
 	connect.server({ root: 'dist', livereload: true, port: 8000 });
 	gulp.watch('project/pug/**/*.pug', gulp.series('pug'));
-	gulp.watch('project/sass/style.scss', gulp.series('css'));
-	gulp.watch('project/script.js', gulp.series('js'));
+	gulp.watch('project/sass/**/*.scss', gulp.series('css'));
+	gulp.watch('project/js/**/*.js', gulp.series('js'));
 
 });
