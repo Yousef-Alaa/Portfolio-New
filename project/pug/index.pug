@@ -13,6 +13,24 @@ html(lang='en')
       div
       div
   
+    // Turkey Window
+    .trk-container
+      .trk-window.active
+        .content
+          div
+            img(src="images/tb-logo.png" alt='Turkeya Logo')
+          div
+            span(dir='rtl') مرحبا بالزائرين من المنحة التركية اتمنى لكم رحلة سعيدة فى الموقع
+            span Hello visitors from the Turkish scholarship, I wish you happy travels in the site
+            span Türk bursundan merhaba ziyaretçiler, sitede iyi yolculuklar dilerim
+        .boxs
+          div
+          div
+          div
+          div
+      .btn.close-trk-window
+        span
+
     // Background Circle
     .bg-circles
       .circle-1
@@ -54,6 +72,7 @@ html(lang='en')
               //- new way
               img(src='images/feeling-proud.svg' alt='Photo')
               img(src='images/programming.svg' alt='Photo 2')
+          
                 
       // Start About Section
       section#about.about.sec-pad
@@ -148,7 +167,8 @@ html(lang='en')
                   .inp-grp
                     textarea.inp-control(required name='Message' placeholder='Message')
                   .sub-btn
-                    button.btn(type='submit') Send Message
+                    button.btn(type='submit' id='specialBtn') Send Message
+
                     
             .contact-info
               .info-item

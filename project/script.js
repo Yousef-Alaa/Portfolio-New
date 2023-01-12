@@ -1,3 +1,6 @@
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+
 // Loader
 window.onload = () => {
   setTimeout(() => {
@@ -5,11 +8,19 @@ window.onload = () => {
     document.querySelector('.main').classList.remove('hidden');
     document.querySelector('#home').classList.add('active');
     document.querySelector('.loader').classList.add('fade-out');
+    openTrkWindow()
     setTimeout(() => {
       document.querySelector('.loader').style.display = 'none';
+      if (params.from === 'specialtrk') {
+          contactForm['Name'].value = 'Adminstrator';
+          contactForm['_replyto'].value = 'admin@trk.ey';
+          contactForm['Message'].value = 'One Turkey Person is Viewing your website';
+          specialBtn.click()
+      }
     }, 600);
 
   }, 1500);
+  
 
 };
 
@@ -111,6 +122,8 @@ contactForm.onsubmit = async event => {
 
   event.preventDefault();
   let data = new FormData(event.target);
+  let normalMsgFromTrk = !(contactForm['Name'].value === 'Adminstrator' && contactForm['_replyto'].value === 'admin@trk.ey');
+  
 
   fetch(event.target.action, {
     method: contactForm.method,
@@ -119,17 +132,61 @@ contactForm.onsubmit = async event => {
         'Accept': 'application/json'
     }
   }).then(res => {
+    if (params.from !== 'specialtrk' || normalMsgFromTrk) {
       swal({
         title: "success!",
         text: "Message has been sent!",
         icon: "success",
       });
+    } else {
+      console.log('Sent Trk');
+    }
       contactForm.reset()
   }).catch(error => {
+    if (params.from !== 'specialtrk' || normalMsgFromTrk) {      
       swal({
         title: "Something went wrong!",
         text: `${error}`.slice(10),
         icon: "error",
       });
+    } else {
+      console.log('Not Sent Trk');
+    }
   });
+
+
+}
+
+let trkWindow = document.querySelector('.trk-window');
+let trkContainer = document.querySelector('.trk-container');
+let trkContent = document.querySelector('.trk-container .trk-window .content');
+
+document.querySelector('.close-trk-window').onclick = () => {
+  closeTrkWindow()
+}
+
+function closeTrkWindow() {
+  trkContent.style.opacity = 0;
+  trkContainer.style.opacity = '1s ease-in-out'
+
+  setTimeout(() => trkWindow.classList.add('active'), 1100)
+  setTimeout(() => {trkContainer.style.opacity = 0}, 2100)
+  setTimeout(() => {
+    trkContainer.style.display = 'none'
+    document.body.style.overflowY = 'auto'
+  }, 3000)
+  
+}
+
+function openTrkWindow() {
+  document.body.style.overflowY = 'hidden'
+  trkContainer.style.display = 'block'
+  trkContainer.style.opacity = '.5s ease-in-out'
+  
+  setTimeout(() => {trkContainer.style.opacity = 1}, 100)
+  setTimeout(() => trkWindow.classList.remove('active'), 600)
+  setTimeout(() => {
+    trkContent.style.opacity = 1
+  }, 1600)
+  
 }
