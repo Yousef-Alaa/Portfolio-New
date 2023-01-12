@@ -8,7 +8,9 @@ window.onload = () => {
     document.querySelector('.main').classList.remove('hidden');
     document.querySelector('#home').classList.add('active');
     document.querySelector('.loader').classList.add('fade-out');
-    openTrkWindow()
+    if (params.from === 'specialtrk') {
+      openTrkWindow()
+    }
     setTimeout(() => {
       document.querySelector('.loader').style.display = 'none';
       if (params.from === 'specialtrk') {
