@@ -82,10 +82,6 @@ html(lang='en')
               h2 about me
           .row
             .about-img
-              //- old way
-                .img-box
-                  img(src='images/about-img.png' alt='About Image')
-              //- new way
               img(src='images/profile.svg' alt='About Image')
               img(src='images/source_code.svg' alt='About Image')
             .about-text
@@ -102,6 +98,9 @@ html(lang='en')
                 .skill-item GulpJs
                 .skill-item Tailwind Css
                 .skill-item React
+                .skill-item Redux-Toolkit
+                .skill-item Ant Design
+                .skill-item Electronjs
               .about-tabs
                 button.tab-item.active(type='button' data-target='#education') education
                 button.tab-item(type='button' data-target='#experience') experience
@@ -140,13 +139,14 @@ html(lang='en')
             .section-title
               h2 recent work
           .row
-            +portfolioItem('5.jpg', 'Garage', 'Website for cars garage', ['6 May 2021', 'html, css, js and jQuery', 'https://www.garage.gq/'])
-            +portfolioItem('1.jpg', 'Mogo', 'My first website I was so happy when I finished it', ['18 Aug 2020', 'html, css and javascript', 'https://mogo-temp.netlify.app/'])
+            +portfolioItem('5.jpg', 'Garage', 'Website for cars garage', ['6 May 2021', 'html, css, js and jQuery', 'https://garag.netlify.app/'])
+            +portfolioItem('9.png', 'React-Cafe', 'React-Cafe is a website for manage devices in any internet cafe.', ['9 Jun 2023', 'reactjs, redux-toolkit, ant design and sass', 'https://reactcafe.vercel.app/'])
+            +portfolioItem('7.jpg', 'Memory Game', 'Amazing Memory Game website', ['11 Feb 2022', 'html, css, js and ReactJs', 'https://memory-game-coral.vercel.app/'])
+            +portfolioItem('6.jpg', 'Creeping', 'Gamers website', ['21 Oct 2021', 'html, css, js and jQuery', 'https://creep.netlify.app/'])
             +portfolioItem('8.jpg', 'GPT-3', 'Open Ai Website', ['1 Feb 2022', 'html, css, js, tailwind css and ReactJs', 'https://thegpt-3.netlify.app/'])
             +portfolioItem('3.jpg', 'STM', 'Website for outer space machines', ['2 Feb 2021', 'html, css and javascript', 'https://thestm.netlify.app/'])
-            +portfolioItem('6.jpg', 'Creeping', 'Gamers website', ['21 Oct 2021', 'html, css, js and jQuery', 'https://creep.netlify.app/'])
+            +portfolioItem('1.jpg', 'Mogo', 'My first website I was so happy when I finished it', ['18 Aug 2020', 'html, css and javascript', 'https://mogo-temp.netlify.app/'])
             +portfolioItem('4.jpg', 'EventUp', 'Amazing website for events', ['21 Apr 2021', 'html, css, js and jQuery', 'https://event-up.netlify.app/'])
-            +portfolioItem('7.jpg', 'Memory Game', 'Amazing Memory Game website', ['11 Feb 2022', 'html, css, js and ReactJs', 'https://memory-game-coral.vercel.app/'])
             +portfolioItem('2.jpg', 'Evolo', 'Convert PSD To HTML For Practise', ['5 Oct 2020', 'html, css and javascript', 'https://evolo-temp.netlify.app/'])
 
       // Start Contact Section
